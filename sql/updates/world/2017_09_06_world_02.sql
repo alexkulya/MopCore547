@@ -5,18 +5,23 @@
 -- Lady Alistra - Text Event
 
 -- Adding Creatures
-DELETE FROM `creature_template` WHERE `entry`=44138;
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `mindmg`, `maxdmg`, `dmgschool`, `attackpower`, `dmg_multiplier`, `baseattacktime`, `rangeattacktime`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `minrangedmg`, `maxrangedmg`, `rangedattackpower`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `Health_mod`, `Mana_mod`, `Armor_mod`, `RacialLeader`, `questItem1`, `questItem2`, `questItem3`, `questItem4`, `questItem5`, `questItem6`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(44138, 0, 0, 0, 0, 0, 169, 0, 0, 0, 'Lady Alistra Portal Dummy', '', '', 0, 80, 80, 0, 35, 0, 1.2, 1.14286, 1, 0, 104, 138, 0, 252, 1, 2000, 2000, 1, 33554688, 2048, 0, 0, 0, 0, 0, 0, 72, 106, 26, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 4, 1, 0.5, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16384, 128, '', 12340);
+SET @ENTRY := ENTRY_REWORK_XXX;
+DELETE FROM `creature_template` WHERE `entry`=@ENTRY;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction_A`, `faction_H`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `mindmg`, `maxdmg`, `dmgschool`, `attackpower`, `dmg_multiplier`, `baseattacktime`, `rangeattacktime`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `minrangedmg`, `maxrangedmg`, `rangedattackpower`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `Health_mod`, `Mana_mod`, `Armor_mod`, `RacialLeader`, `questItem1`, `questItem2`, `questItem3`, `questItem4`, `questItem5`, `questItem6`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+(@ENTRY, 0, 0, 0, 0, 0, 169, 0, 0, 0, 'Lady Alistra Portal Dummy', '', '', 0, 80, 80, 0, 35, 35, 0, 1.2, 1.14286, 1, 0, 104, 138, 0, 252, 1, 2000, 2000, 1, 33554688, 2048, 0, 0, 0, 0, 0, 0, 72, 106, 26, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 4, 1, 0.5, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16384, 128, '', 12340);
 
 -- Disciple of the Unholy SAI
 SET @ENTRY := 28491;
+SET @GUID_1 := GUID_REWORK_1_XXX;
+SET @GUID_2 := GUID_REWORK_2_XXX;
+SET @GUID_3 := GUID_REWORK_3_XXX;
+
 UPDATE `creature_template` SET `AIName`="SmartAI" WHERE `entry`=@ENTRY;
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-128551, -128552, -128553) AND `source_type`=0;
+-- REWORK! DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-128551, -128552, -128553) AND `source_type`=0;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-(-128551, 0, 0, 0, 38, 0, 100, 0, 1, 1, 0, 0, 80, 2849100, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, "Disciple of the Unholy - On Data 1 1 - Start Script"),
-(-128552, 0, 0, 0, 38, 0, 100, 0, 1, 1, 0, 0, 80, 2849100, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, "Disciple of the Unholy - On Data 1 1 - Start Script"),
-(-128553, 0, 0, 0, 38, 0, 100, 0, 1, 1, 0, 0, 80, 2849100, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, "Disciple of the Unholy - On Data 1 1 - Start Script");
+(@GUID_1, 0, 0, 0, 38, 0, 100, 0, 1, 1, 0, 0, 80, 2849100, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, "Disciple of the Unholy - On Data 1 1 - Start Script"),
+(@GUID_2, 0, 0, 0, 38, 0, 100, 0, 1, 1, 0, 0, 80, 2849100, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, "Disciple of the Unholy - On Data 1 1 - Start Script"),
+(@GUID_3, 0, 0, 0, 38, 0, 100, 0, 1, 1, 0, 0, 80, 2849100, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, "Disciple of the Unholy - On Data 1 1 - Start Script");
 
 -- Actionlist SAI
 SET @ENTRY := 2849100;
